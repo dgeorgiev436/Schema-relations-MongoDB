@@ -1,0 +1,35 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>Products</title>
+  <meta name="description" content="The HTML5 Herald">
+  <meta name="author" content="SitePoint">
+
+
+
+</head>
+
+<body>
+	<h1>ADD A PRODUCT FOR <%=farm.name%></h1>
+	<form action="/farms/<%=farm._id%>/products" method="POST">
+		<label for="name">Product name:</label>
+		<input type="text" name="name" id="name" placeholder="Product name">
+		<label for="price">Price:</label>
+		<input type="number" name="price" id="price" placeholder="price">
+		<label for="category">Choose a category</label>
+		<select id="category" name="category">
+			<%for(let categ of categories){ %>
+				<option value="<%=categ%>"><%=categ%></option>
+			<% } %>
+		</select>
+		<button>ADD PRODUCT</button>
+	</form>
+	
+	
+	<a href="/farms/<%=farm._id%>">GO BACK TO FARM</a>
+
+</body>
+</html>

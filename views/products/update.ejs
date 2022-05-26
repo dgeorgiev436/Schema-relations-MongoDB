@@ -1,0 +1,35 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>Products</title>
+  <meta name="description" content="The HTML5 Herald">
+  <meta name="author" content="SitePoint">
+
+
+
+</head>
+
+<body>
+	<h1>EDIT PRODUCT WITH AN ID OF: <%= foundProduct._id %></h1>
+	<form action="/products/<%=foundProduct._id%>?_method=PUT" method="POST">
+		<label for="name">Product name:</label>
+		<input type="text" name="name" id="name" placeholder="Product name" value="<%= foundProduct.name %>">
+		<label for="price">Price:</label>
+		<input type="number" name="price" id="price" placeholder="price" value="<%= foundProduct.price %>">
+		<label for="category">Choose a category</label>
+		<select id="category" name="category">
+			<%for(let category of categories){ %>
+				<option value="<%=category%>" <%=foundProduct.category === category ? "selected": ""%>><%=category%></option>
+			<% } %>
+		</select>
+		<button>EDIT PRODUCT</button>
+	</form>
+	
+	
+	<a href="/products/<%=foundProduct._id%>">GO BACK TO PRODUCT DETAILS</a>
+
+</body>
+</html>
